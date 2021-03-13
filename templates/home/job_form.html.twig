@@ -1,0 +1,32 @@
+{{ form_start(form, {'attr': {'class': 'row'}}) }}
+<div class="container">
+    <div class="form-group">
+        Reference
+        {{ form_widget(form.ref, {'attr': {'placeholder': 'Ref', 'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        Titre
+        {{ form_widget(form.title, {'attr': {'placeholder': 'Titre du job', 'class': 'form-control'}}) }}       
+    </div>
+    <div class="form-group">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description, {'attr': {'placeholder': 'Le contenu de l\'article', 'class': 'form-control', 'rows': '3'}}) }}
+    </div>
+    <div class="form-group">
+        Salaire
+        {{ form_widget(form.salary, {'attr': {'placeholder': 'Salaire', 'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        Catégories
+        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}       
+    </div>
+    <div class="form-group">
+        Niveau d'étude
+        {{ form_widget(form.tag, {'attr': {'class': 'form-control'}}) }}   
+    </div>
+    <div class="form-group">
+        <input type="submit" name="" value="Enregistrer" class="btn btn-primary">
+        <input type="reset" value="Effacer" id="reset" name="reset" class="btn btn-secondary">
+    </div>
+</div>
+{{ form_end(form) }}

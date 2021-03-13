@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de Jobs{% endblock %}
+
+
+{% block body %}
+<header>
+    <nav>
+        <a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Deconnexion</a>
+    </nav>
+</header>
+<div class="container">
+    <div style="text-align:center">
+    <h1>Manpower</h1>
+    <h2>Liste des offres</h2>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('home_add') }}" class="btn btn-outline-primary">Ajouter une offre</a>
+        <a href="{{ path('user_index') }}" class="btn btn-outline-primary">Liste Users</a>
+        <a href="{{ path('user_new') }}" class="btn btn-outline-primary">Ajouter Admin</a>
+    {% endif %}
+    <br><br>
+    </div>
+    {% for job in jobs %}
+        <div class="card">
+            <div class="card-header">
+              Category:  {{ job.category.name}} 
+              <br>
+              Tag :  {{ job.tag.degree}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"> {{ job.title }}  </h5>
+                <h5 class="card-title"> {{ job.salary }}  </h5>
+                <p class="card-text"> {{ job.description }} </p>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('home_modify', {ref: job.ref})}}" class="btn btn-primary">Update</a>
+                    <a href="{{ path('home_delete', {ref: job.ref}) }}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script type="text/javascript">
+	</script>
+{% endblock %}

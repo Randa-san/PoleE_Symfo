@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout de Job{% endblock %}
+
+{% block body %}
+<header>
+    <nav>
+        <a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Deconnexion</a>
+    </nav>
+</header>
+<div style="text-align:center">
+    <h1 style="text-align:center">Ajouter un nouveau job </h1>
+    <a href="{{ path('home_show') }}" class="btn btn-outline-primary">Liste des offres</a>
+    <br>
+</div>
+    {% include "home/job_form.html.twig" %}
+    {# {{form(form)}} #}
+{% endblock %}
+
+
+{% block scripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$('select').formSelect();
+	</script>
+{% endblock %}

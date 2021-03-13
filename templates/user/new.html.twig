@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+    
+    {{ include('user/_form.html.twig') }}
+
+    {# <a href="{{ path('user_index') }}">back to list</a> #}
+    {% if is_granted('ROLE_ADMIN') is same as(false)%}
+    Vous avez déjà un compte ?
+    <a href="{{ path('app_login') }}">
+        Connectez-vous !
+    </a>
+    {% endif %}
+{% endblock %}
